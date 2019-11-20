@@ -11,8 +11,7 @@ class RegExFormatter():
         return matches is not None
 
     def count_all_words(self):
-        words = re.split(r'(?!\.|\')\W+', self.text)
-        return len(words)
+        pass
 
     def count_word(self, word):
         pass
