@@ -74,5 +74,9 @@ class PythonTests(unittest.TestCase):
         words = tester.count_all_words()
         self.assertEqual(words, 313)
 
+    def nel_with_numbers(self):
+        """ Trovare soltanto se "nel" va seguito si numeri
+        """
+
 if __name__ == '__main__':
     unittest.main()
