@@ -1,5 +1,6 @@
 import unittest
-from main import RegExFormatter
+# from main import RegExFormatter
+from result import RegExFormatter
 
 
 class PythonTests(unittest.TestCase):
@@ -72,11 +73,30 @@ class PythonTests(unittest.TestCase):
         """
         tester = RegExFormatter(self.text)
         words = tester.count_all_words()
-        self.assertEqual(words, 313)
+        self.assertEqual(words, 299)
 
-    def nel_with_numbers(self):
-        """ Trovare soltanto se "nel" va seguito si numeri
+    def test_nel_with_numbers(self):
+        """ Trovare soltanto se "nel" va seguito di numeri
         """
+        tester = RegExFormatter(self.text)
+        words = tester.search_followed_by_numbers()
+        self.assertEqual(len(words), 4)
+
+        # Adesso verifichiamo se la parola effetivamente
+        # non ha il gruppo che non volevamo fosse catturato
+        # (i numeri seguenti)
+        import re
+
+        for word in words:
+            for key, value in word.items():
+                self.assertIsNone(re.search(r'\d+', value))
+
+    def test_subtitute(self):
+        """ Sostituire tutte le parole che cominciano per
+        ma per la parola desiderata"""
+        tester = RegExFormatter(self.text)
+        text, num_substitutions = tester.sub_starts_with_ma("ECCO")
+        self.assertEqual(num_substitutions, 7)
 
 if __name__ == '__main__':
     unittest.main()
