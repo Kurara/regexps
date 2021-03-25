@@ -18,7 +18,7 @@ setup(
     # installed or upgraded on the target machine
 
     install_requires=[
-        'PyYAML==5.1.2',
+        'PyYAML==5.4',
         'scikit_learn@https://files.pythonhosted.org/packages/4d/73/7b6c17c3738de4c8fc42b626eb26e7756ef8624b0b8729d0820216932721/scikit_learn-0.21.3-cp35-cp35m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl'
     ],
     # install_requires=requires,
